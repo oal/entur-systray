@@ -76,4 +76,4 @@ This application uses the [Entur API](https://developer.entur.org/), Norway's na
 
 ## License
 
-MIT
+MPL-2.0
