@@ -18,7 +18,8 @@ public record StopPlace(
 public record Quay(
     [property: JsonPropertyName("id")] string Id,
     [property: JsonPropertyName("name")] string? Name,
-    [property: JsonPropertyName("estimatedCalls")] List<EstimatedCall>? EstimatedCalls
+    [property: JsonPropertyName("estimatedCalls")] List<EstimatedCall>? EstimatedCalls,
+    [property: JsonPropertyName("lines")] List<Line>? Lines
 );
 
 public record EstimatedCall(

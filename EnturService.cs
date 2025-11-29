@@ -55,12 +55,8 @@ public class EnturService : IDisposable
                 quays {
                   id
                   name
-                  estimatedCalls(numberOfDepartures: 20, timeRange: 7200) {
-                    serviceJourney {
-                      line {
-                        publicCode
-                      }
-                    }
+                  lines {
+                    publicCode
                   }
                 }
               }
@@ -82,8 +78,8 @@ public class EnturService : IDisposable
                 .Select(q => new QuayInfo(
                     q.Id,
                     q.Name ?? q.Id,
-                    q.EstimatedCalls?
-                        .Select(c => c.ServiceJourney?.Line?.PublicCode)
+                    q.Lines?
+                        .Select(l => l.PublicCode)
                         .Where(code => !string.IsNullOrEmpty(code))
                         .Select(code => code!)
                         .Distinct()
@@ -102,19 +98,19 @@ public class EnturService : IDisposable
     {
         try
         {
+            // Use lines field for all lines (static data), and estimatedCalls for destinations
+            // Expanded timeRange to 86400 (24 hours) for better destination coverage
             var query = $$"""
             {
               stopPlace(id: "{{stopPlaceId}}") {
                 quays {
                   id
-                  estimatedCalls(numberOfDepartures: 20, timeRange: 7200) {
+                  lines {
+                    publicCode
+                  }
+                  estimatedCalls(numberOfDepartures: 50, timeRange: 86400) {
                     destinationDisplay {
                       frontText
-                    }
-                    serviceJourney {
-                      line {
-                        publicCode
-                      }
                     }
                   }
                 }
@@ -137,14 +133,16 @@ public class EnturService : IDisposable
             if (!string.IsNullOrEmpty(quayId))
                 quays = quays.Where(q => q.Id == quayId).ToList();
 
+            // Get lines from static lines field (includes all lines regardless of current departures)
             var lines = quays
-                .SelectMany(q => q.EstimatedCalls ?? new List<EstimatedCall>())
-                .Select(c => c.ServiceJourney?.Line?.PublicCode)
+                .SelectMany(q => q.Lines ?? new List<Line>())
+                .Select(l => l.PublicCode)
                 .Where(code => !string.IsNullOrEmpty(code))
                 .Distinct()
                 .OrderBy(code => code)
                 .ToList();
 
+            // Get destinations from estimatedCalls (these are departure-specific)
             var destinations = quays
                 .SelectMany(q => q.EstimatedCalls ?? new List<EstimatedCall>())
                 .Select(c => c.DestinationDisplay?.FrontText)
