@@ -14,9 +14,27 @@ A Windows system tray application that displays real-time Norwegian public trans
 - **Customizable colors** - Choose icon text colors for easy identification
 - **Bilingual** - English and Norwegian (Bokmål) interface
 
-## Screenshot
+## Screenshots
+
+*Screenshots show the Norwegian interface. The app supports both English and Norwegian.*
+
+### System Tray
 
 The tray icon displays a countdown number (e.g., "12" = 12 minutes until departure). Hover for details on the next 3 departures.
+
+![System tray icons showing departure countdowns](docs/assets/systray.png)
+
+### Settings Window
+
+Configure multiple departure trackers from the settings window:
+
+![Settings window](docs/assets/settings.png)
+
+### Icon Configuration
+
+Each icon can be customized with stop, platform, line, destination filters and time-based schedules:
+
+![Icon edit dialog](docs/assets/edit-icon.png)
 
 ## Requirements
 
