@@ -1,0 +1,134 @@
+<Window x:Class="EnturSystray.IconEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="clr-namespace:EnturSystray.Resources"
+        Title="{x:Static res:Strings.IconEditDialog_Title}"
+        Height="580" Width="480"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Display Name -->
+        <Label Grid.Row="0" Grid.Column="0" Content="{x:Static res:Strings.Label_DisplayName}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="DisplayNameTextBox" Margin="0,0,0,10"/>
+
+        <!-- Color -->
+        <Label Grid.Row="1" Grid.Column="0" Content="{x:Static res:Strings.Label_IconColor}" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ColorComboBox" Margin="0,0,0,10">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="20" Height="16" CornerRadius="2" Margin="0,0,8,0"
+                                Background="Black">
+                            <TextBlock Text="5" Foreground="{Binding Brush}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       FontWeight="Bold" FontSize="10"/>
+                        </Border>
+                        <TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <!-- Stop Search -->
+        <Label Grid.Row="2" Grid.Column="0" Content="{x:Static res:Strings.Label_StopSearch}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="SearchTextBox" Margin="0,0,5,10"
+                 KeyDown="SearchTextBox_KeyDown"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="{x:Static res:Strings.Button_Search}" Width="70" Margin="0,0,0,10"
+                Click="SearchButton_Click" x:Name="SearchButton"/>
+
+        <!-- Stop Dropdown -->
+        <Label Grid.Row="3" Grid.Column="0" Content="{x:Static res:Strings.Label_Stop}" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="StopComboBox" Margin="0,0,0,10"
+                  DisplayMemberPath="DisplayName" SelectionChanged="StopComboBox_SelectionChanged"/>
+
+        <!-- Quay Dropdown -->
+        <Label Grid.Row="4" Grid.Column="0" Content="{x:Static res:Strings.Label_Quay}" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="QuayComboBox" Margin="0,0,0,10"
+                  DisplayMemberPath="DisplayName" SelectionChanged="QuayComboBox_SelectionChanged"/>
+
+        <!-- Line Dropdown -->
+        <Label Grid.Row="5" Grid.Column="0" Content="{x:Static res:Strings.Label_Line}" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" x:Name="LineComboBox" Margin="0,0,0,10"
+                  SelectionChanged="LineComboBox_SelectionChanged"/>
+
+        <!-- Destination Dropdown -->
+        <Label Grid.Row="6" Grid.Column="0" Content="{x:Static res:Strings.Label_Destination}" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" x:Name="DestinationComboBox" Margin="0,0,0,10"
+                  SelectionChanged="DestinationComboBox_SelectionChanged"/>
+
+        <!-- Schedule Section -->
+        <Separator Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,10"/>
+
+        <CheckBox Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" x:Name="EnableScheduleCheckBox"
+                  Content="{x:Static res:Strings.Checkbox_EnableSchedule}" Margin="0,0,0,10"
+                  Checked="EnableScheduleCheckBox_Changed" Unchecked="EnableScheduleCheckBox_Changed"/>
+
+        <!-- Time Range -->
+        <Label Grid.Row="9" Grid.Column="0" Content="{x:Static res:Strings.Label_Time}" VerticalAlignment="Center" x:Name="TimeLabel"/>
+        <StackPanel Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,10" x:Name="TimePanel">
+            <ComboBox x:Name="StartHourComboBox" Width="50"/>
+            <TextBlock Text=":" VerticalAlignment="Center" Margin="2,0"/>
+            <ComboBox x:Name="StartMinuteComboBox" Width="50"/>
+            <TextBlock Text=" - " VerticalAlignment="Center" Margin="5,0"/>
+            <ComboBox x:Name="EndHourComboBox" Width="50"/>
+            <TextBlock Text=":" VerticalAlignment="Center" Margin="2,0"/>
+            <ComboBox x:Name="EndMinuteComboBox" Width="50"/>
+        </StackPanel>
+
+        <!-- Day Selection -->
+        <Label Grid.Row="10" Grid.Column="0" Content="{x:Static res:Strings.Label_Days}" VerticalAlignment="Top" x:Name="DaysLabel"/>
+        <StackPanel Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,10" x:Name="DaysPanel">
+            <WrapPanel>
+                <CheckBox x:Name="MondayCheckBox" Margin="0,0,10,5"/>
+                <CheckBox x:Name="TuesdayCheckBox" Margin="0,0,10,5"/>
+                <CheckBox x:Name="WednesdayCheckBox" Margin="0,0,10,5"/>
+                <CheckBox x:Name="ThursdayCheckBox" Margin="0,0,10,5"/>
+                <CheckBox x:Name="FridayCheckBox" Margin="0,0,10,5"/>
+                <CheckBox x:Name="SaturdayCheckBox" Margin="0,0,10,5"/>
+                <CheckBox x:Name="SundayCheckBox" Margin="0,0,10,5"/>
+            </WrapPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="WeekdaysButton" Width="80" Margin="0,0,5,0" Click="WeekdaysButton_Click"/>
+                <Button x:Name="WeekendsButton" Width="70" Margin="0,0,5,0" Click="WeekendsButton_Click"/>
+                <Button x:Name="AllDaysButton" Width="80" Click="AllDaysButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Status -->
+        <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" x:Name="StatusText"
+                   Foreground="Gray" FontStyle="Italic" Margin="0,0,0,10"/>
+
+        <!-- Error Message -->
+        <TextBlock Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" x:Name="ErrorText"
+                   Foreground="Red" TextWrapping="Wrap"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="3"
+                    Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="{x:Static res:Strings.Button_Cancel}" Width="80" Margin="0,0,10,0" Click="CancelButton_Click"/>
+            <Button Content="{x:Static res:Strings.Button_Save}" Width="80" Click="SaveButton_Click" x:Name="SaveButton"/>
+        </StackPanel>
+    </Grid>
+</Window>

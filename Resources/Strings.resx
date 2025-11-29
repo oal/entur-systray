@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="0" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Window Titles -->
+  <data name="SettingsWindow_Title" xml:space="preserve">
+    <value>Entur Systray Settings</value>
+  </data>
+  <data name="IconEditDialog_Title" xml:space="preserve">
+    <value>Edit Tray Icon</value>
+  </data>
+
+  <!-- Common Buttons -->
+  <data name="Button_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_Add" xml:space="preserve">
+    <value>+ Add</value>
+  </data>
+  <data name="Button_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Button_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Button_MoveUp" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="Button_MoveDown" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="Button_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Button_Weekdays" xml:space="preserve">
+    <value>Weekdays</value>
+  </data>
+  <data name="Button_Weekends" xml:space="preserve">
+    <value>Weekends</value>
+  </data>
+  <data name="Button_AllDays" xml:space="preserve">
+    <value>All Days</value>
+  </data>
+
+  <!-- Settings Window Labels -->
+  <data name="Label_TrayIcons" xml:space="preserve">
+    <value>Tray Icons</value>
+  </data>
+  <data name="Label_RefreshInterval" xml:space="preserve">
+    <value>Refresh Interval:</value>
+  </data>
+  <data name="Label_SecondsMin10" xml:space="preserve">
+    <value>seconds (min 10)</value>
+  </data>
+  <data name="Label_Language" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="Label_MaxIcons" xml:space="preserve">
+    <value>Max {0}</value>
+  </data>
+
+  <!-- Icon Edit Dialog Labels -->
+  <data name="Label_DisplayName" xml:space="preserve">
+    <value>Display Name:</value>
+  </data>
+  <data name="Label_IconColor" xml:space="preserve">
+    <value>Icon Color:</value>
+  </data>
+  <data name="Label_StopSearch" xml:space="preserve">
+    <value>Stop Search:</value>
+  </data>
+  <data name="Label_Stop" xml:space="preserve">
+    <value>Stop:</value>
+  </data>
+  <data name="Label_Quay" xml:space="preserve">
+    <value>Quay:</value>
+  </data>
+  <data name="Label_Line" xml:space="preserve">
+    <value>Line:</value>
+  </data>
+  <data name="Label_Destination" xml:space="preserve">
+    <value>Destination:</value>
+  </data>
+  <data name="Label_Time" xml:space="preserve">
+    <value>Time:</value>
+  </data>
+  <data name="Label_Days" xml:space="preserve">
+    <value>Days:</value>
+  </data>
+  <data name="Checkbox_EnableSchedule" xml:space="preserve">
+    <value>Enable schedule for this icon</value>
+  </data>
+
+  <!-- Day Abbreviations -->
+  <data name="Day_Mon" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="Day_Tue" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="Day_Wed" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="Day_Thu" xml:space="preserve">
+    <value>Thu</value>
+  </data>
+  <data name="Day_Fri" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+  <data name="Day_Sat" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="Day_Sun" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+
+  <!-- Day Groupings -->
+  <data name="Days_Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="Days_MonFri" xml:space="preserve">
+    <value>Mon-Fri</value>
+  </data>
+  <data name="Days_SatSun" xml:space="preserve">
+    <value>Sat-Sun</value>
+  </data>
+
+  <!-- Dropdown Options -->
+  <data name="Option_AllQuays" xml:space="preserve">
+    <value>(All Quays)</value>
+  </data>
+  <data name="Option_AllLines" xml:space="preserve">
+    <value>(All Lines)</value>
+  </data>
+  <data name="Option_AllDestinations" xml:space="preserve">
+    <value>(All Destinations)</value>
+  </data>
+
+  <!-- Context Menu -->
+  <data name="Menu_RefreshNow" xml:space="preserve">
+    <value>Refresh Now</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+
+  <!-- Tray Tooltips -->
+  <data name="Tooltip_NoScheduledDepartures" xml:space="preserve">
+    <value>Entur Systray - No scheduled departures</value>
+  </data>
+  <data name="Tooltip_ClickSettingsToAdd" xml:space="preserve">
+    <value>Entur Systray - Click Settings to add icons</value>
+  </data>
+  <data name="Tooltip_Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="Tooltip_NoDepartures" xml:space="preserve">
+    <value>No departures</value>
+  </data>
+  <data name="Tooltip_NoUpcoming" xml:space="preserve">
+    <value>No upcoming departures</value>
+  </data>
+  <data name="Tooltip_Realtime" xml:space="preserve">
+    <value> (RT)</value>
+  </data>
+  <data name="Tooltip_MinFormat" xml:space="preserve">
+    <value>{0}: {1} min</value>
+  </data>
+
+  <!-- Status Messages -->
+  <data name="Status_LoadingConfig" xml:space="preserve">
+    <value>Loading current configuration...</value>
+  </data>
+  <data name="Status_Ready" xml:space="preserve">
+    <value>Ready. Search for a new stop or modify settings.</value>
+  </data>
+  <data name="Status_Searching" xml:space="preserve">
+    <value>Searching...</value>
+  </data>
+  <data name="Status_NoStopsFound" xml:space="preserve">
+    <value>No stops found.</value>
+  </data>
+  <data name="Status_FoundStops" xml:space="preserve">
+    <value>Found {0} stop(s).</value>
+  </data>
+  <data name="Status_LoadingQuays" xml:space="preserve">
+    <value>Loading quays...</value>
+  </data>
+  <data name="Status_LoadedQuays" xml:space="preserve">
+    <value>Loaded {0} quay(s).</value>
+  </data>
+
+  <!-- Error Messages -->
+  <data name="Error_MaxIconsAllowed" xml:space="preserve">
+    <value>Maximum of {0} icons allowed.</value>
+  </data>
+  <data name="Error_RefreshIntervalNumber" xml:space="preserve">
+    <value>Refresh interval must be a number.</value>
+  </data>
+  <data name="Error_RefreshIntervalMin10" xml:space="preserve">
+    <value>Refresh interval must be at least 10 seconds.</value>
+  </data>
+  <data name="Error_InvalidStop" xml:space="preserve">
+    <value>Icon '{0}' has an invalid stop. Please edit or remove it.</value>
+  </data>
+  <data name="Error_SaveFailed" xml:space="preserve">
+    <value>Failed to save: {0}</value>
+  </data>
+  <data name="Error_EnterSearchTerm" xml:space="preserve">
+    <value>Please enter a search term.</value>
+  </data>
+  <data name="Error_SearchFailed" xml:space="preserve">
+    <value>Search failed: {0}</value>
+  </data>
+  <data name="Error_LoadQuaysFailed" xml:space="preserve">
+    <value>Failed to load quays: {0}</value>
+  </data>
+  <data name="Error_SelectValidStop" xml:space="preserve">
+    <value>Please search and select a valid stop.</value>
+  </data>
+  <data name="Error_InvalidQuayId" xml:space="preserve">
+    <value>Invalid Quay ID format.</value>
+  </data>
+  <data name="Error_SelectAtLeastOneDay" xml:space="preserve">
+    <value>Please select at least one day for the schedule.</value>
+  </data>
+
+  <!-- Default Values -->
+  <data name="Default_UnconfiguredIcon" xml:space="preserve">
+    <value>Unconfigured Icon</value>
+  </data>
+  <data name="Default_BusDeparture" xml:space="preserve">
+    <value>Bus Departure</value>
+  </data>
+  <data name="Default_Departures" xml:space="preserve">
+    <value>Departures</value>
+  </data>
+  <data name="Default_LinePrefix" xml:space="preserve">
+    <value>Line {0}</value>
+  </data>
+  <data name="Default_LinesFormat" xml:space="preserve">
+    <value> - Lines: {0}</value>
+  </data>
+
+  <!-- Color Names -->
+  <data name="Color_Yellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Color_Cyan" xml:space="preserve">
+    <value>Cyan</value>
+  </data>
+  <data name="Color_Lime" xml:space="preserve">
+    <value>Lime</value>
+  </data>
+  <data name="Color_Orange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Color_Magenta" xml:space="preserve">
+    <value>Magenta</value>
+  </data>
+  <data name="Color_White" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Color_SkyBlue" xml:space="preserve">
+    <value>Sky Blue</value>
+  </data>
+
+  <!-- Language Names -->
+  <data name="Language_Auto" xml:space="preserve">
+    <value>Auto (System)</value>
+  </data>
+  <data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Language_Norwegian" xml:space="preserve">
+    <value>Norwegian</value>
+  </data>
+
+</root>

@@ -1,0 +1,17 @@
+# Build outputs
+bin/
+obj/
+
+# IDE and editor settings
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Claude Code
+.claude/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+nul
