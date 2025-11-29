@@ -7,6 +7,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+
+    <!-- Assembly info -->
+    <Version>0.1.0</Version>
+    <AssemblyTitle>EnturSystray</AssemblyTitle>
+    <Product>EnturSystray</Product>
+    <Company>Olav Lindekleiv</Company>
+    <Copyright>Copyright (c) 2024 Olav Lindekleiv</Copyright>
+    <Description>Windows system tray app for Norwegian transit departures</Description>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
