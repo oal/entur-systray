@@ -141,6 +141,20 @@ public partial class App : System.Windows.Application
             Visible = true,
             ContextMenuStrip = CreateContextMenu()
         };
+
+        trayIcon.MouseClick += (sender, e) =>
+        {
+            if (e.Button == Forms.MouseButtons.Left)
+            {
+                var iconConfig = _config?.Icons.FirstOrDefault(i => i.Id == id);
+                if (iconConfig != null && !string.IsNullOrEmpty(iconConfig.StopPlaceId))
+                {
+                    var url = $"https://entur.no/nearby-stop-place-detail?id={iconConfig.StopPlaceId}";
+                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                }
+            }
+        };
+
         return trayIcon;
     }
 
