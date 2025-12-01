@@ -342,4 +342,15 @@
     <value>Norsk</value>
   </data>
 
+  <!-- Update Check -->
+  <data name="Checkbox_CheckForUpdates" xml:space="preserve">
+    <value>Se etter oppdateringer ved oppstart</value>
+  </data>
+  <data name="Update_Available" xml:space="preserve">
+    <value>Versjon {0} er tilgjengelig!</value>
+  </data>
+  <data name="Update_Download" xml:space="preserve">
+    <value>Last ned</value>
+  </data>
+
 </root>

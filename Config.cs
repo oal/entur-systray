@@ -81,6 +81,7 @@ public class Config
     public List<TrayIconConfig> Icons { get; set; } = new();
     public int RefreshIntervalSeconds { get; set; } = 30;
     public string Language { get; set; } = "auto";  // "auto", "en", "nb-NO"
+    public bool CheckForUpdates { get; set; } = true;
 
     public static Config Load()
     {

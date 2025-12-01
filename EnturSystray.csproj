@@ -9,7 +9,7 @@
     <UseWindowsForms>true</UseWindowsForms>
 
     <!-- Assembly info -->
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <AssemblyTitle>EnturSystray</AssemblyTitle>
     <Product>EnturSystray</Product>
     <Company>Olav Lindekleiv</Company>

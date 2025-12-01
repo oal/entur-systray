@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Windows;
 using EnturSystray.Localization;
 using EnturSystray.Resources;
@@ -9,6 +10,7 @@ public partial class SettingsWindow : Window
 {
     private readonly List<TrayIconConfig> _icons;
     private readonly Config _currentConfig;
+    private string? _releaseUrl;
 
     public Config? ResultConfig { get; private set; }
 
@@ -124,8 +126,40 @@ public partial class SettingsWindow : Window
         // Initialize language dropdown
         InitializeLanguageDropdown();
 
+        // Initialize update check setting
+        CheckForUpdatesCheckbox.IsChecked = currentConfig.CheckForUpdates;
+
         RefreshIconsList();
         UpdateButtonStates();
+
+        // Check for updates if enabled
+        if (currentConfig.CheckForUpdates)
+        {
+            _ = CheckForUpdatesAsync();
+        }
+    }
+
+    private async Task CheckForUpdatesAsync()
+    {
+        var (hasUpdate, latestVersion, releaseUrl) = await UpdateChecker.CheckForUpdateAsync();
+        if (hasUpdate && latestVersion != null)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                UpdateText.Text = string.Format(Strings.Update_Available, latestVersion);
+                DownloadLinkText.Text = Strings.Update_Download;
+                _releaseUrl = releaseUrl;
+                UpdateBanner.Visibility = Visibility.Visible;
+            });
+        }
+    }
+
+    private void DownloadLink_Click(object sender, RoutedEventArgs e)
+    {
+        if (_releaseUrl != null)
+        {
+            Process.Start(new ProcessStartInfo(_releaseUrl) { UseShellExecute = true });
+        }
     }
 
     private void InitializeLanguageDropdown()
@@ -317,7 +351,8 @@ public partial class SettingsWindow : Window
         {
             Icons = _icons,
             RefreshIntervalSeconds = refreshInterval,
-            Language = selectedLanguage
+            Language = selectedLanguage,
+            CheckForUpdates = CheckForUpdatesCheckbox.IsChecked ?? true
         };
 
         try

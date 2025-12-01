@@ -167,5 +167,10 @@ namespace EnturSystray.Resources {
         public static string Language_Auto => ResourceManager.GetString("Language_Auto", resourceCulture) ?? "";
         public static string Language_English => ResourceManager.GetString("Language_English", resourceCulture) ?? "";
         public static string Language_Norwegian => ResourceManager.GetString("Language_Norwegian", resourceCulture) ?? "";
+
+        // Update Check
+        public static string Checkbox_CheckForUpdates => ResourceManager.GetString("Checkbox_CheckForUpdates", resourceCulture) ?? "";
+        public static string Update_Available => ResourceManager.GetString("Update_Available", resourceCulture) ?? "";
+        public static string Update_Download => ResourceManager.GetString("Update_Download", resourceCulture) ?? "";
     }
 }

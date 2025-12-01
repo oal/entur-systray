@@ -9,7 +9,9 @@
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -17,8 +19,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- Update notification banner (hidden by default) -->
+        <Border x:Name="UpdateBanner" Grid.Row="0" Visibility="Collapsed"
+                Background="#FFF3CD" BorderBrush="#FFE69C" BorderThickness="1"
+                CornerRadius="4" Padding="10" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="UpdateText" VerticalAlignment="Center"/>
+                <TextBlock Margin="5,0,0,0" VerticalAlignment="Center">
+                    <Hyperlink x:Name="DownloadLink" Click="DownloadLink_Click">
+                        <Run x:Name="DownloadLinkText"/>
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
         <!-- Header with Add button -->
-        <Grid Grid.Row="0" Margin="0,0,0,10">
+        <Grid Grid.Row="1" Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
@@ -28,7 +44,7 @@
         </Grid>
 
         <!-- Icons List -->
-        <ListBox Grid.Row="1" x:Name="IconsListBox" Margin="0,0,0,10"
+        <ListBox Grid.Row="2" x:Name="IconsListBox" Margin="0,0,0,10"
                  SelectionChanged="IconsListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -46,7 +62,7 @@
         </ListBox>
 
         <!-- List Action Buttons -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,15">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,15">
             <Button x:Name="EditButton" Width="70" Margin="0,0,5,0" Click="EditButton_Click" IsEnabled="False"/>
             <Button x:Name="RemoveButton" Width="70" Margin="0,0,5,0" Click="RemoveButton_Click" IsEnabled="False"/>
             <Button x:Name="MoveUpButton" Width="75" Margin="0,0,5,0" Click="MoveUpButton_Click" IsEnabled="False"/>
@@ -54,10 +70,10 @@
         </StackPanel>
 
         <!-- Separator -->
-        <Separator Grid.Row="3" Margin="0,0,0,15"/>
+        <Separator Grid.Row="4" Margin="0,0,0,15"/>
 
         <!-- Global Settings -->
-        <Grid Grid.Row="4" Margin="0,0,0,10">
+        <Grid Grid.Row="5" Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -69,7 +85,7 @@
         </Grid>
 
         <!-- Language Setting -->
-        <Grid Grid.Row="5" Margin="0,0,0,15">
+        <Grid Grid.Row="6" Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -79,8 +95,13 @@
             <ComboBox Grid.Column="1" x:Name="LanguageComboBox" Width="150" Margin="5,0,0,0"/>
         </Grid>
 
+        <!-- Check for Updates Setting -->
+        <CheckBox Grid.Row="7" x:Name="CheckForUpdatesCheckbox"
+                  Content="{x:Static res:Strings.Checkbox_CheckForUpdates}"
+                  Margin="0,0,0,15"/>
+
         <!-- Buttons -->
-        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBlock x:Name="ErrorText" Foreground="Red" VerticalAlignment="Center" Margin="0,0,20,0"/>
             <Button x:Name="CancelButton" Content="{x:Static res:Strings.Button_Cancel}" Width="80" Margin="0,0,10,0" Click="CancelButton_Click"/>
             <Button x:Name="SaveButton" Content="{x:Static res:Strings.Button_Save}" Width="80" Click="SaveButton_Click"/>
